@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    if (strcmp(argv[1], "train") == 0)
+    if (strcmp(argv[1], "learn") == 0)
     {
         int width, height, channels;
         char buf[18];
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 
             float ans = 0.0;
 
-            for (unsigned int i = 0; i < 30 * 30; i++)
+            for (unsigned int i = 0; i < width * height; i++)
             {
                 ans = ans + (((float)img2[i] / 255.0) * ((float)w2[i] / 255.0));
             }    
@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 
             if (ans < 70.0)
             {
-                for (unsigned int i = 0; i < 30 * 30; i++)
+                for (unsigned int i = 0; i < width2 * height2; i++)
                 {
                     w2[i] =  map(img2[i] - 200 + w2[i], 0, 510, 0, 255);
                 }
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
             }
             else if (ans > 90.0)
             {
-                for (unsigned int i = 0; i < 30 * 30; i++)
+                for (unsigned int i = 0; i < width2 * height2; i++)
                 {
                     w2[i] =  map(img2[i] + w2[i], 0, 510, 0, 255);
                 }
@@ -147,7 +147,7 @@ int main(int argc, char *argv[])
 
         float ans = 0.0;
 
-        for (unsigned int i = 0; i < 30 * 30; i++)
+        for (unsigned int i = 0; i < width * height; i++)
         {
             ans = ans + (((float)img2[i] / 255.0) * ((float)w2[i] / 255));
         }        
