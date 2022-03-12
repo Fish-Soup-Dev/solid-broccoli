@@ -1,4 +1,4 @@
-exe = perceptron.exe
+exe = main.exe
 sources = $(wildcard src/*.c)
 flags = -o
 
